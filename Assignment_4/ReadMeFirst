@@ -1,0 +1,6 @@
+I have written the code for Assinment4 in two versions.
+First one in the directory (Taking_user_input_from_console) , This code is written in such a way that it takes user input from console and prints the output to console.No unit testing is done for this code.
+
+Second one in the directory (Inputs_from_files_and_unit_testing),This code written in such a way that it takes inputs from four files and performs unit testing for each class's methods and prints the output to console.
+
+The logic for finding valid date ranges for filling the KYC form is same in both the version is same.Only difference giving input to the code.In the second case,inputs are constant ,if we change them ,errors may occur while unit testing. Hence,if you want to check for different inputs,first version should be used.
