@@ -21,7 +21,7 @@ public class DirectoryQueue
         }
 
     /**
-     * findFiles() method returns an arrayList of allFiles. This method performs Breadth First Search(BFS)
+     * getAllFiles() method returns an arrayList of allFiles. This method performs Breadth First Search(BFS)
      * by adding each found directory to queue and also adding all the directories of currently found direcory.
      * First I will add my home directory to the queue and then loop untill queue becomes empty and in the loop
      * remove the directory  from start of the queue and assign it to currentDirectory and now
