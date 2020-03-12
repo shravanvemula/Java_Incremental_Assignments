@@ -30,11 +30,11 @@ public class DirectoryQueue
      * directory add it to the queue of directories. In this way currentDirectory updates to first directory in the queue ,since queue.remove()
      * removes and returns the first directory in the queue.Hence the loop runs untill queue becomes empty.
      *
-     * @param regExp
+     *
      * @param directory
      * @return
      */
-    public ArrayList<File> findFiles(String regExp,File directory)
+    public ArrayList<File> getAllFiles(File directory)
         {
 
             File[] foundFiles;
