@@ -29,6 +29,8 @@ public class FileSearch {
 
     /**
      * takeInput() method has a parameter named directory which is of type File .
+     * This method calls getAllFiles() method present in DirectoryQueue class which returns an ArrayList of all
+     * the files present in all the directories of home directory
      * This method takes input from the user, untill user enters -1 .If user enter -1
      * the loop terminates and  user cannot give input.If  user enters a regular expression
      * printRequiredFiles() method will be called to print the absolute paths of files matching
@@ -40,31 +42,30 @@ public class FileSearch {
             System.out.println(directory.getName() + " does not exist");
             return;
         }
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         System.out.print("Enter Regular Expression or \"-1\" to terminate the search : ");
         String regExp = scanner.next();
-
+        ArrayList<File> allFiles =dirQueue.getAllFiles(directory);
         while (!regExp.equals("-1")) {
-            printRequiredFiles(regExp,directory);
+            printRequiredFiles(regExp,directory,allFiles);
             System.out.print("Enter Regular Expression or \"-1\" to terminate the search : ");
             regExp = scanner.next();
 
         }
     }
-
     /**
-     * printRequiredFiles() method has two parameters named regExp of type String and directory of type File.
-     * This method calls findFiles() method present in DirectoryQueue class which returns an ArrayList of all
-     * the files present in all the directories of home directory.Then this method prints the absolute paths
+     * printRequiredFiles() method has three parameters
+     * This method prints the absolute paths
      * of only those files that are matching the given regular expression.
      * @param regExp
      * @param directory
+     * @param allFiles
      */
-    public void printRequiredFiles(String regExp,File directory){
+    public void printRequiredFiles(String regExp,File directory,ArrayList<File> allFiles){
         int flag=0;
-        ArrayList<File> foundFiles =dirQueue.findFiles(regExp,directory);
-        System.out.println("Absolute Paths of files found in " + directory.getName() + " matching the regular expression \"" + regExp + "\" are:");
-        for (File currentFile : foundFiles){
+
+        System.out.println("Absolute Paths of files found in " + directory.getAbsolutePath() + " matching the regular expression \"" + regExp + "\" are:");
+        for (File currentFile : allFiles){
             String fileName=currentFile.getName();
             if(fileName.matches(regExp)) {
                 flag=1;
@@ -77,19 +78,21 @@ public class FileSearch {
     }
 
     /**
-     * I have taken /home/shravan/Downloads as my home directory since it contains most of the files in my system.
+     * I have taken userName as an input in the main()
      * @param args
      * @throws IOException
      */
     public static void main(String args[])throws IOException {
         FileSearch fs = new FileSearch();
-        File homeDir = new File("/home/shravan/Downloads");
+        Scanner scanner=new Scanner(System.in).useDelimiter("\n");
+        System.out.print("Enter User Name:");
+        String userName=scanner.next();
+        File homeDir = new File("/home/"+userName);
         fs.takeInput(homeDir);
 
     }
 
 }
-
 
 
 
