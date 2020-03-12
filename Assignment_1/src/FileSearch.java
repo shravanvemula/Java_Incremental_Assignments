@@ -77,22 +77,18 @@ public class FileSearch {
         }
     }
 
-    /**
-     * I have taken userName as an input in the main()
-     * @param args
-     * @throws IOException
-     */
+
     public static void main(String args[])throws IOException {
         FileSearch fs = new FileSearch();
         Scanner scanner=new Scanner(System.in).useDelimiter("\n");
-        System.out.print("Enter User Name:");
-        String userName=scanner.next();
-        File homeDir = new File("/home/"+userName);
+        String homeDirectory=System.getProperty("user.home");
+        File homeDir = new File(homeDirectory);
         fs.takeInput(homeDir);
 
     }
 
 }
+
 
 
 
