@@ -92,7 +92,7 @@ public class ValidDateRangesTester {
 		assertEquals("input4 : check date ranges are correct ","No Range",input4.dateRanges.get(0));
 		assertEquals("input4 : check date ranges are correct ","12-11-2001 11-01-2002",input4.dateRanges.get(1));
 		assertEquals("input4 : check date ranges are correct ","13-10-2002 12-12-2002",input4.dateRanges.get(2));
-		assertEquals("input4 : check date ranges are correct ","13-10-2003 12-12-2003",input4.dateRanges.get(3));
+		assertEquals("input4 : check date ranges are correct ","13-10-2003 13-10-2003",input4.dateRanges.get(3));
 	}
 	
 	@Test

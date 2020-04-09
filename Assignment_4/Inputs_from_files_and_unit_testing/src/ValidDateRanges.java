@@ -98,7 +98,7 @@ class ValidDateRanges
             }
             //if endDate is greater than present date and start date is lower than present date then
             //present date becomes the end date.
-            if(endDate.compareTo(presentDate)>0 && startDate.compareTo(presentDate)<0)
+            if(endDate.compareTo(presentDate)>0 && startDate.compareTo(presentDate)<=0)
             {
                 endDate=presentDate;
             }
